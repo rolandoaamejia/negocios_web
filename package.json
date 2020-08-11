@@ -1,0 +1,58 @@
+{
+  "name": "taskily",
+  "version": "1.0.0",
+  "description": "Gestor de proyectos, tareas y asignaciones",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./index.js",
+    "start": "concurrently \"npm run dev\" \"npm run watch\"",
+    "watch": "webpack --w --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsabillon7/taskily.git"
+  },
+  "keywords": [
+    "gestor",
+    "tareas",
+    "proyectos"
+  ],
+  "author": "Héctor Sabillón",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hsabillon7/taskily/issues"
+  },
+  "homepage": "https://github.com/hsabillon7/taskily#readme",
+  "dependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.1.0",
+    "bcrypt-nodejs": "0.0.3",
+    "concurrently": "^5.2.0",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.0",
+    "handlebars": "^4.7.6",
+    "html-to-text": "^5.1.1",
+    "juice": "^7.0.0",
+    "moment": "^2.27.0",
+    "mysql2": "^2.1.0",
+    "nodemailer": "^6.4.10",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^5.21.11",
+    "shortid": "^2.2.15",
+    "slug": "^3.3.0",
+    "sweetalert2": "^9.15.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
