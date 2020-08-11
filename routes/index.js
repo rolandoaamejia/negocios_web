@@ -82,6 +82,8 @@ module.exports = function () {
     "/registrate",
     // Sanitizar el contenido del formulario
     body("fullname").notEmpty().trim().escape(),
+    body('password').isLength({ min: 6 }),
+    body('passwordConfirmation').equals(body("password")).withMessage('passwords do not match'),
     usuariosController.crearCuenta
   );
 

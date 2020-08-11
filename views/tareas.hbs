@@ -10,36 +10,42 @@
   <div class="form-group">
     <label for="nombre">Descripción</label>
     <input type="text" class="form-control" id="definicion" name="definicion" placeholder="Define la tarea" required>
+    <input type="datetime" name="fechafin" placeholder="Fecha final" required>
   </div>
   <button type="submit" class="btn btn-primary">Agregar</button>
 </form>
 
 {{!-- Lista de tareas existentes --}}
+<p>{{tareas}}</p>
 {{#if tareas}}
-    <ul id="listado-tareas">
-    {{#each tareas}}
-          <li data-tarea={{id}}>
-            <p>
-              {{definicion}}
-              <div class="togglebutton">
-                <label>
-                  {{#if estado}}
-                    <input type="checkbox" checked>
-                  {{else}}
-                    <input type="checkbox">
-                  {{/if}}
-                  <span class="toggle"></span>
-                </label>
-              </div>
-              <button class="btn btn-fab btn-round btn-primary">
-                <i class="fa fa-trash"></i>
-              </button>
-            </p>
-          </li>
-    {{/each}}
-    </ul>
+<ul id="listado-tareas">
+  {{#each tareas}}
+  <li data-tarea={{id}}>
+    <p>
+      {{definicion}}
+      
+      {{#if estadotarea}}
+      <strong >Retrasada </strong>
+      {{/if}}
+      <div class="togglebutton">
+        <label>
+          {{#if estado}}
+          <input type="checkbox" checked>
+          {{else}}
+          <input type="checkbox">
+          {{/if}}
+          <span class="toggle"></span>
+        </label>
+      </div>
+      <button class="btn btn-fab btn-round btn-primary">
+        <i class="fa fa-trash"></i>
+      </button>
+    </p>
+  </li>
+  {{/each}}
+</ul>
 {{else}}
-    <div class="text-center mt-3">
-      <h4>Este proyecto aún no tiene tareas. ¡Agrega alguna!</h4>
-    </div>
+<div class="text-center mt-3">
+  <h4>Este proyecto aún no tiene tareas. ¡Agrega alguna!</h4>
+</div>
 {{/if}}

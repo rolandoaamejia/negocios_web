@@ -29,22 +29,7 @@ exports.agregarTarea = async (req, res, next) => {
     return next();
   }
 };
-async function verificarTarea(idTarea) {
-  const tarea = await Tarea.findOne({
-    where: {
-      id: idTarea,
-      fechafin: {
-        [Op.gte]: Date.now(),
-      },
-    },
-  });
 
-  if (!tarea) {
-    return false
-  } else {
-    return true
-  }
-}
 
 // Permite actualizar el estado de una tarea
 exports.actualizarEstadoTarea = async (req, res, next) => {

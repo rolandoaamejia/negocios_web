@@ -227,14 +227,42 @@ exports.mostrarProyecto = async (req, res, next) => {
     const tareasArray = [];
 
     tareas.map((tarea) => {
-      tareasArray.push({
-        id: tarea.dataValues.id,
-        definicion: tarea.dataValues.definicion,
-        estado: tarea.dataValues.estado,
-        fecha: tarea.dataValues.fecha,
-      });
-    });
+      Tareas.findOne({
+        where: {
+          id: tarea.dataValues.id,
+          fechafin: {
+            [Op.gte]: Date.now(),
+          },
+        },
+      }).then((res) => {
+        if (res != null) {
+          tareasArray.push({
+            id: tarea.dataValues.id,
+            definicion: tarea.dataValues.definicion,
+            estado: tarea.dataValues.estado,
+            fecha: tarea.dataValues.fecha,
+            fechafin: tarea.dataValues.fechafin,
+            estadotarea: true,
+          });
+        } else {
+          tareasArray.push({
+            id: tarea.dataValues.id,
+            definicion: tarea.dataValues.definicion,
+            estado: tarea.dataValues.estado,
+            fecha: tarea.dataValues.fecha,
+            fechafin: tarea.dataValues.fechafin,
+            estadotarea: false,
+          });
 
+        }
+
+        console.log(tareasArray);
+        
+      }).catch((error) => console.log(error));
+
+
+    });
+    console.log(tareasArray);
     res.render("tareas", {
       proyecto: proyecto.dataValues,
       tareas: tareasArray,
