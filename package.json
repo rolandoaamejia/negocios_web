@@ -1,0 +1,30 @@
+{
+  "name": "examen-repo-negocios-web",
+  "version": "1.0.0",
+  "description": "taskily",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolo7/examen-repo-negocios-web.git"
+  },
+  "keywords": [],
+  "author": "Rolando",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolo7/examen-repo-negocios-web/issues"
+  },
+  "homepage": "https://github.com/rolo7/examen-repo-negocios-web#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "handlebars": "^4.7.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
